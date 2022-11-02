@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using FirstMVCPlugg.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<FirstMVCPluggContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("FirstMVCPluggContext") ?? throw new InvalidOperationException("Connection string 'FirstMVCPluggContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
