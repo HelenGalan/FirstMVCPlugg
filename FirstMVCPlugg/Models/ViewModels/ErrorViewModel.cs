@@ -1,4 +1,4 @@
-namespace FirstMVCPlugg.Models
+namespace FirstMVCPlugg.Models.ViewModels
 {
     public class ErrorViewModel
     {

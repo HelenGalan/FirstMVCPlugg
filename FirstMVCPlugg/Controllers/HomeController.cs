@@ -1,4 +1,4 @@
-﻿using FirstMVCPlugg.Models;
+﻿using FirstMVCPlugg.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 

@@ -1,0 +1,44 @@
+﻿
+<!-- ele usa o IEnumerable porque e uma colecao benerica, nao tem operacao de adicionar ou remover, apenas percorre-la -->
+@model IEnumerable<FirstMVCPlugg.Models.Department> 
+<!-- colecao de department, declarando que essa pagina vai usar um model do tipo IEnumerable de Department -->
+
+@{
+    ViewData["Title"] = "Departments";
+}
+
+<h1>Departments</h1>
+
+<p>
+    <a asp-action="Create">Create New</a> <!-- asp-action cria automaticamente um link apontando para a acao create deste mesmo controlador que chamou esta pagina, precisa da acao create -->
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
